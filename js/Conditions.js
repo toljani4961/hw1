@@ -44,7 +44,7 @@ let num = 50;
 // while(num <= 55); 
 
 for (let i=1; i<=390; i++) {
-    if (i >= 22) {
+    if (i = 22) {
         break;
     }
     console.log(i);
