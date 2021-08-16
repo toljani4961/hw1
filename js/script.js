@@ -36,6 +36,13 @@ const personalMovieD8 = {
             }
         }
     },
+    toggleVisibleMyDB: function() {
+        if (personalMovieD8.privat == true) {
+            personalMovieD8.privat = false;
+        } else {
+            personalMovieD8.privat = true;
+        }
+    },
     questionsSycleCheck: function() {
             if (personalMovieD8.count < 10) {
                     console.log('просмотренно довольно мало фильмов');
@@ -53,12 +60,28 @@ const personalMovieD8 = {
                         break;
                     }
                     const c = prompt("один из последних просмотренніх фильмов", []),
-                          d = +prompt("оцінка", ''); 
+                          d = +prompt("оцінка", '');
                           personalMovieD8.genres[c] = d;
                 }
-         }
+         },
+    writeYorGenres: function() {
+    for(let i = 1; i <= 3; i++) {
+        let newLet = prompt(`Ваш улюблений жанр під номером ${i}`);
+        if (newLet == null || newLet == "") {
+            console.log("ви ввели невірні дані");
+            i--;
+        } else {
+            personalMovieD8.genres[i - 1] = newLet;
+        }
+    }
+    personalMovieD8.genres.forEach((item, i) =>  {
+        console.log(`Любой жанр ${i + 1} - это ${item}`);
+    });
+}   
 };
-personalMovieD8.start();
+
+
+console.log(personalMovieD8);
 
 // function questionsSycle() {
 //     for (let i = 0; i < 1;  i++) {
@@ -174,4 +197,4 @@ personalMovieD8.start();
 //     console.log("You are a move fun");
 // }else {
 //     console.log("Errors");
-console.log(personalMovieD8);
+// console.log(personalMovieD8);
